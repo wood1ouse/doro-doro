@@ -1,0 +1,21 @@
+import { IPomoTime } from '../time.model';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class TimeSelectorService {
+
+  incrementMinutes(time: IPomoTime) {
+    time.minutes += 1;
+  }
+
+  decrementMinutes(time: IPomoTime) {
+    if (time.minutes !== 0) {
+      time.minutes -= 1;
+    }
+
+  }
+
+  constructor() {}
+}
