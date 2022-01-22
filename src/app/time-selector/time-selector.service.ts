@@ -1,3 +1,4 @@
+import { ICurrentTime } from './../time.model';
 import { IPomoTime } from '../time.model';
 import { Injectable } from '@angular/core';
 
@@ -5,6 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TimeSelectorService {
+  currentTime!: ICurrentTime
 
   incrementMinutes(time: IPomoTime) {
     time.minutes += 1;
@@ -14,7 +16,10 @@ export class TimeSelectorService {
     if (time.minutes !== 0) {
       time.minutes -= 1;
     }
+  }
 
+  setCurrentTime(time: ICurrentTime) {
+    this.currentTime = time
   }
 
   constructor() {}
