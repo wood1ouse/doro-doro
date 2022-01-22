@@ -1,3 +1,7 @@
 <div class="text-[248px] text-white">
-  <span *ngIf="time.currentTime.workTime.minutes < 10">0</span>{{time.currentTime.workTime.minutes}}:00</div>
-<div></div>
+  <span *ngIf="time.currentTime.workTime.minutes < 10">0</span>{{time.currentTime.workTime.minutes}}:<span
+    *ngIf="time.currentTime.workTime.seconds < 10">0</span><span>{{time.currentTime.workTime.seconds}}</span>
+</div>
+<button (click)="switchTime()"
+  [ngClass]="paused ? 'transition ease-in-out bg-green-400 hover:bg-green-500 w-full text-4xl rounded-lg p-3' : 'transition ease-in-out bg-orange-400 hover:bg-orange-500 w-full text-4xl rounded-lg p-3' ">{{paused
+  ? 'Resume' : 'Pause'}}</button>
