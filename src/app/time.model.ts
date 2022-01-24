@@ -3,7 +3,11 @@ export interface IPomoTime {
   seconds: number
 }
 
-export interface ICurrentTime {
+export interface IUserTime {
   workTime: IPomoTime
   breakTime: IPomoTime
+}
+
+export interface IPomoTask {
+  completed: boolean
 }

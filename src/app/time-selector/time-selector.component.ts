@@ -40,7 +40,7 @@ export class TimeSelectorComponent implements OnInit {
   }
 
   submitTime() {
-    this.time.setCurrentTime({
+    this.time.setUserTime({
       workTime: this.workTime,
       breakTime: this.breakTime,
     });

@@ -9,24 +9,41 @@ import { TimerService } from './timer.service';
   styleUrls: ['./timer.component.scss'],
 })
 export class TimerComponent implements OnInit {
-  paused: boolean = false
+  currentPomo: number = 1;
+
+
+
   constructor(
     public time: TimeSelectorService,
+    public timer: TimerService,
     private route: Router,
-    private timer: TimerService
   ) {}
 
   ngOnInit(): void {
-    if (!this.time.currentTime) {
+    if (!this.time.userTime) {
       this.route.navigate(['/']);
     }
 
-    this.timer.startTimer(this.time.currentTime.workTime);
+    console.log(this.time.getUserTime());
+
+
+    console.log(this.timer.break);
+
+
+    // this.timer.startWorkTimer(this.time.getUserTime());
+    this.timer.startWorkTimer({workTime: {minutes: 0, seconds: 7}, breakTime: {minutes: 0, seconds: 5}});
   }
 
-  switchTime() {
-    this.paused = !this.paused
-
-    this.paused ? this.timer.stopTimer() : this.timer.startTimer(this.time.currentTime.workTime)
+  handleClick() {
+    this.timer.togglePause()
   }
+
+
+  // switchTime() {
+  //   this.paused = !this.paused;
+
+  //   this.paused
+  //     ? this.timer.stopTimer()
+  //     : this.timer.startWorkTimer(this.time.userTime);
+  // }
 }
