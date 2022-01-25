@@ -1,6 +1,7 @@
 <div class="fixed bg-opacity-60 w-screen bg-black rounded-b-lg h-10 font-size text-3xl text-white flex items-center justify-center ">
   Doro Doro
 </div>
-<div class="flex items-center justify-center w-screen h-screen bg-gradient-to-r from-[#0652C5] to-[#D4418E]">
+<div [ngClass]="background.getBackgroundColor()">
   <router-outlet></router-outlet>
 </div>
+

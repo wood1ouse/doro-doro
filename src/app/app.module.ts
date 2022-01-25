@@ -8,17 +8,9 @@ import { TimeSelectorComponent } from './time-selector/time-selector.component';
 import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TimeSelectorComponent,
-    TimerComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CommonModule
-  ],
+  declarations: [AppComponent, TimeSelectorComponent, TimerComponent],
+  imports: [BrowserModule, AppRoutingModule, CommonModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

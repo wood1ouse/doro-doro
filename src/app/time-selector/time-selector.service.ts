@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TimeSelectorService {
-  userTime!: IUserTime
+  userTime!: IUserTime;
 
   incrementMinutes(time: IPomoTime) {
     time.minutes += 1;
@@ -19,11 +19,11 @@ export class TimeSelectorService {
   }
 
   setUserTime(time: IUserTime) {
-    this.userTime = time
+    this.userTime = time;
   }
 
   getUserTime(): IUserTime {
-    return this.userTime
+    return this.userTime;
   }
 
   constructor() {}

@@ -1,7 +1,8 @@
+import { IPomoTime } from './../time.model';
 import { TimeSelectorService } from './time-selector.service';
 import { Component, OnInit } from '@angular/core';
-import { IPomoTime } from '../time.model';
 import { Router } from '@angular/router';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'doro-time-selector',
@@ -9,19 +10,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./time-selector.component.scss'],
 })
 export class TimeSelectorComponent implements OnInit {
-  workTime: IPomoTime = {
-    minutes: 0,
-    seconds: 0,
-  };
+  workTime!: IPomoTime;
+  breakTime!: IPomoTime;
 
-  breakTime: IPomoTime = {
-    minutes: 0,
-    seconds: 0,
-  };
+  constructor(
+    private time: TimeSelectorService,
+    private route: Router,
+    private userData: UserDataService
+  ) {}
 
-  constructor(private time: TimeSelectorService, private route: Router) {}
+  ngOnInit(): void {
+    this.workTime = {
+      minutes: 0,
+      seconds: 0,
+    };
 
-  ngOnInit(): void {}
+    this.breakTime = {
+      minutes: 0,
+      seconds: 0,
+    };
+  }
 
   incrementWorkTime() {
     this.time.incrementMinutes(this.workTime);
@@ -44,6 +52,9 @@ export class TimeSelectorComponent implements OnInit {
       workTime: this.workTime,
       breakTime: this.breakTime,
     });
+
+    this.userData.setUserData({ ...this.userData.getUserData(), start: false });
+
     this.route.navigate(['/timer']);
   }
 }
