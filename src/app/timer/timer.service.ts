@@ -2,6 +2,7 @@ import { TimeSelectorService } from './../time-selector/time-selector.service';
 import { IPomoTask, IPomoTime, IUserTime } from './../time.model';
 import { Injectable } from '@angular/core';
 import { UserDataService } from '../user-data.service';
+import { Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class TimerService {
 
   constructor(
     timeSelector: TimeSelectorService,
-    private userData: UserDataService
+    private userData: UserDataService,
+    private titleService: Title
   ) {
     this.workTimer = timeSelector.getUserTime().workTime;
     this.breakTimer = timeSelector.getUserTime().breakTime;
@@ -44,6 +46,7 @@ export class TimerService {
         this.startBreakTimer(userTime);
       } else {
         this.calculateTime(workTime);
+        this.titleService.setTitle(`Work: ${this.formatTime(workTime)}`)
         this.workTimer = workTime;
       }
     }, 1000);
@@ -64,7 +67,7 @@ export class TimerService {
         this.startWorkTimer(userTime);
       } else {
         this.calculateTime(breakTime);
-
+        this.titleService.setTitle(`Break: ${this.formatTime(breakTime)}`)
         this.breakTimer = breakTime;
       }
     }, 1000);
@@ -87,5 +90,9 @@ export class TimerService {
   togglePause() {
     let paused = !this.userData.getUserData().paused;
     this.userData.setUserData({ ...this.userData.getUserData(), paused });
+  }
+
+  formatTime(time: IPomoTime): string {
+    return `${time.minutes < 10 ? '0' : ''}${time.minutes}:${time.seconds < 10 ? '0' : ''}${time.seconds}`
   }
 }

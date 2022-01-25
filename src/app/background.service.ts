@@ -11,20 +11,17 @@ export class BackgroundService {
   getBackgroundColor() {
     const userData: IPomoUserData = this.user.getUserData();
 
-    let basicClass =
-      'overflow-x-hidden flex items-center justify-center w-screen h-screen background-animate bg-gradient-to-r';
-
     if (userData.start) {
-      return `${basicClass} bg-gradient-to-r from-[#0652C5] to-[#D4418E]`;
+      return `bg-gradient-to-r from-[#0652C5] to-[#D4418E]`;
     }
 
     if (userData.paused) {
-      return `${basicClass} bg-gradient-to-r from-yellow-500 to-orange-500`;
+      return `bg-gradient-to-r from-yellow-500 to-orange-500`;
     } else if (!userData.paused) {
       if (userData.break) {
-        return `${basicClass} bg-gradient-to-r from-[#98DE5B] to-[#08E1AE]`;
+        return `bg-gradient-to-r from-[#98DE5B] to-[#08E1AE]`;
       }
-      return `${basicClass} bg-gradient-to-r from-[#5311ce] to-[#4D5DFB]`;
+      return `bg-gradient-to-r from-[#5311ce] to-[#4D5DFB]`;
     }
 
     return '';
