@@ -11,7 +11,7 @@ export class TimerService {
   currentPomo: number = 0;
   workTimer!: IPomoTime;
   breakTimer!: IPomoTime;
-
+  
   constructor(
     timeSelector: TimeSelectorService,
     private userData: UserDataService,

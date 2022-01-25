@@ -13,8 +13,11 @@ module.exports = {
       colors: {
         'wood-blue': '#0652C5',
         'wood-pink': '#D4418E'
-      }
+      },
     },
+    screens: {
+      'sm': '350px'
+    }
   },
   variants: {
     extend: {},
