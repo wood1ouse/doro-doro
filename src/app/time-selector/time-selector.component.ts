@@ -29,6 +29,13 @@ export class TimeSelectorComponent implements OnInit {
       minutes: 0,
       seconds: 0,
     };
+
+    this.time.setUserTime({
+      workTime: this.workTime,
+      breakTime: this.breakTime,
+    });
+
+
   }
 
   incrementWorkTime() {
@@ -48,10 +55,6 @@ export class TimeSelectorComponent implements OnInit {
   }
 
   submitTime() {
-    this.time.setUserTime({
-      workTime: this.workTime,
-      breakTime: this.breakTime,
-    });
 
     this.userData.setUserData({ ...this.userData.getUserData(), start: false });
 

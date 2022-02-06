@@ -6,13 +6,11 @@
     </div>
 
     <div *ngIf="userData.getUserData().break">
-      <!-- <div>gfdsgjdfl;kjsdkg</div> -->
 
       <span *ngIf="timer.breakTimer.minutes < 10">0</span>{{timer.breakTimer.minutes}}:<span
         *ngIf="timer.breakTimer.seconds < 10">0</span><span>{{timer.breakTimer.seconds}}</span>
 
 
-      <!-- <div>0{{timer.breakTimer.minutes}}:0{{timer.breakTimer.seconds}}</div> -->
     </div>
 
   </div>

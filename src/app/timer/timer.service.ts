@@ -11,15 +11,14 @@ export class TimerService {
   currentPomo: number = 0;
   workTimer!: IPomoTime;
   breakTimer!: IPomoTime;
-  
+  workInterval!: ReturnType<typeof setInterval>
+  breakInterval!: ReturnType<typeof setInterval>
+
   constructor(
-    timeSelector: TimeSelectorService,
+    private timeSelector: TimeSelectorService,
     private userData: UserDataService,
     private titleService: Title
-  ) {
-    this.workTimer = timeSelector.getUserTime().workTime;
-    this.breakTimer = timeSelector.getUserTime().breakTime;
-  }
+  ) {}
 
   pomodoros: IPomoTask[] = [
     { completed: false },
@@ -29,6 +28,9 @@ export class TimerService {
   ];
 
   startWorkTimer(userTime: IUserTime) {
+    this.workTimer = this.timeSelector.getUserTime().workTime;
+    this.breakTimer = this.timeSelector.getUserTime().breakTime;
+
     this.userData.setUserData({ ...this.userData.getUserData(), break: false });
 
     const { workTime } = JSON.parse(JSON.stringify(userTime));
@@ -38,9 +40,9 @@ export class TimerService {
       this.currentPomo = 0;
     }
 
-    const interval = setInterval(() => {
+    this.workInterval = setInterval(() => {
       if (this.hasEnded(workTime)) {
-        clearInterval(interval);
+        clearInterval(this.workInterval);
         this.pomodoros[this.currentPomo].completed = true;
         this.currentPomo++;
         this.startBreakTimer(userTime);
@@ -61,9 +63,9 @@ export class TimerService {
     breakTime =
       this.currentPomo === this.pomodoros.length ? workTime : breakTime;
 
-    const interval = setInterval(() => {
+    this.breakInterval = setInterval(() => {
       if (this.hasEnded(breakTime)) {
-        clearInterval(interval);
+        clearInterval(this.breakInterval);
         this.startWorkTimer(userTime);
       } else {
         this.calculateTime(breakTime);
