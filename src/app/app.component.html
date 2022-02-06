@@ -1,6 +1,6 @@
-<div class="fixed bg-opacity-60 w-screen bg-black rounded-b-lg h-10 font-size text-3xl text-white flex items-center justify-center ">
+<a (click)="resetTime()" [routerLink]="['/']" class="fixed bg-opacity-60 w-screen bg-black rounded-b-lg h-10 font-size text-3xl text-white flex items-center justify-center ">
   Doro Doro
-</div>
+</a>
 <div [ngClass]="'flex flex-col items-center justify-center w-screen h-screen background-animate bg-gradient-to-r ' + background.getBackgroundColor()">
   <router-outlet></router-outlet>
 </div>

@@ -12,5 +12,10 @@ import { BackgroundService } from './background.service';
 export class AppComponent {
   title = 'doro-doro';
 
-  constructor(public background: BackgroundService) {}
+  constructor(public background: BackgroundService, private timerService: TimerService) {}
+
+  resetTime() {
+    clearInterval(this.timerService.workInterval)
+    clearInterval(this.timerService.breakInterval)
+  }
 }

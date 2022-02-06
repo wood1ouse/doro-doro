@@ -18,7 +18,8 @@ export class TimerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!this.time.userTime) {
+
+    if (!this.time.getUserTime()) {
       this.route.navigate(['/']);
     }
 
