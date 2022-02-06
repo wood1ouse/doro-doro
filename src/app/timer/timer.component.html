@@ -1,0 +1,27 @@
+<div class="w-[410px] sm:w-[350px] leading-[185px]">
+  <div class="text-[218px] text-white">
+    <div *ngIf="!userData.getUserData().break">
+      <span *ngIf="timer.workTimer.minutes < 10">0</span>{{timer.workTimer.minutes}}:<span
+        *ngIf="timer.workTimer.seconds < 10">0</span><span>{{timer.workTimer.seconds}}</span>
+    </div>
+
+    <div *ngIf="userData.getUserData().break">
+
+      <span *ngIf="timer.breakTimer.minutes < 10">0</span>{{timer.breakTimer.minutes}}:<span
+        *ngIf="timer.breakTimer.seconds < 10">0</span><span>{{timer.breakTimer.seconds}}</span>
+
+
+    </div>
+
+  </div>
+
+  <div class="flex justify-between">
+    <div *ngFor="let pomodoro of timer.pomodoros"
+      [ngClass]="pomodoro.completed ? 'rounded-full border-2 border-white bg-green-400 w-6 h-6': 'rounded-full bg-white w-6 h-6'">
+    </div>
+  </div>
+
+
+  <button (click)="handleClick()"
+    [ngClass]="userData.getUserData().paused ? 'text-white transition ease-in-out bg-green-400 hover:bg-green-500 w-full text-4xl rounded-lg p-3' : 'text-white transition ease-in-out bg-orange-400 hover:bg-orange-500 w-full text-4xl rounded-lg p-3' ">{{userData.getUserData().paused
+    ? 'Resume' : 'Pause'}}</button>
