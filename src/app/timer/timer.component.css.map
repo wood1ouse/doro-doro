@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "timer.component.scss"
+    ],
+    "names": [],
+    "file": "timer.component.css"
+}

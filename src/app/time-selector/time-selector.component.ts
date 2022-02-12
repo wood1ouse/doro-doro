@@ -55,7 +55,6 @@ export class TimeSelectorComponent implements OnInit {
   }
 
   submitTime() {
-
     this.userData.setUserData({ ...this.userData.getUserData(), start: false });
 
     this.route.navigate(['/timer']);
