@@ -1,28 +1,40 @@
-# DoroDoro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+# Doro Doro - Mobile First Pomodoro Timer
+![](https://github.com/wood1ouse/doro-doro/blob/development/src/assets/rmLogo.png?raw=true)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## If you're not Productive, just be Productive, lmao
+But actually, there's no other chance for staying sane without systematical design of your workflow.
+Pomodoro approach is just a nice option for that. You'll have sprints for 20-25 min determined work and 5-7 min break.
+After every 4 work sprints break will be 20-25 minutes.
+Timing is up to you but these are the best practices
 
-## Code scaffolding
+## Just a freaking timer? It's a new evolve stage after todos?
+Uhm, yeah. I just considered that all pomodoro services are not fine enough with UI/UX and i created this for myself.
+But i believe that it could be turned into something more significant, some hierarchical system of workflow management.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Feel free to colaborate <3 
 
-## Build
+## License
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+MIT License
 
-## Running unit tests
+Copyright (c) 2022 wood1ouse
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Running end-to-end tests
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# doro-doro
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
